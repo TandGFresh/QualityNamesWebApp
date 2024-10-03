@@ -21,6 +21,7 @@ var arching = "Arching";
 var pruneArch = "Prune And Arch";
 var trussCutting = "Truss Cutting";
 var density = "Density";
+var botrytis = "Botrytis";
 
 var checkedBox;
 
@@ -508,6 +509,9 @@ class Har extends React.Component {
                       <Table.HeaderCell className="align-space">
                         DENSITY
                       </Table.HeaderCell>
+                      <Table.HeaderCell className="align-space">
+                        BOTRYTIS
+                      </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 
@@ -936,6 +940,44 @@ class Har extends React.Component {
                                 el.Name +
                                 " " +
                                 density +
+                                " " +
+                                this.state.otherTLName
+                              }
+                            />
+                          </Table.Cell>
+                          <Table.Cell className="align-space">
+                            {" "}
+                            <input
+                              type="checkbox"
+                              id="Botrytis"
+                              className="largerCheckbox"
+                              name={
+                                el.Name +
+                                " " +
+                                botrytis +
+                                " " +
+                                this.state.otherTLName
+                              }
+                              defaultChecked={this.userExists(
+                                el.Name +
+                                  " " +
+                                  botrytis +
+                                  " " +
+                                  this.state.otherTLName
+                              )}
+                              onChange={(e) =>
+                                this.getJobDetails(
+                                  el.Name,
+                                  botrytis,
+                                  this.state.otherTLName,
+                                  e,
+                                  el.Name + " " + this.state.otherTLName
+                                )
+                              }
+                              value={
+                                el.Name +
+                                " " +
+                                botrytis +
                                 " " +
                                 this.state.otherTLName
                               }
